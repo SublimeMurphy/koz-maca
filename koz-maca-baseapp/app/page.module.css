@@ -1,0 +1,465 @@
+.container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 100vh;
+  background: radial-gradient(circle at 0% -20%, rgba(56, 189, 248, 0.2), rgba(15, 23, 42, 0.9)),
+    #020617;
+  color: #f8fafc;
+}
+
+.headerWrapper {
+  position: relative;
+  height: 0;
+  padding: 0;
+}
+
+.walletHidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.gameArea {
+  width: min(100%, 520px);
+  margin: 0 auto;
+  padding: 1.2rem 1.25rem 2.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.intro {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 16px;
+  padding: 1.25rem;
+  backdrop-filter: blur(6px);
+}
+
+.intro h1 {
+  font-size: clamp(1.6rem, 4.8vw, 2.3rem);
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.intro p {
+  max-width: 420px;
+  line-height: 1.6;
+  color: rgba(226, 232, 240, 0.85);
+}
+
+.handSection {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  padding: 1.35rem 1.35rem 1.2rem;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+  overflow: hidden;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.sectionHeader h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.cardGrid {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem auto 0;
+  overflow: hidden;
+}
+
+.card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: clamp(68px, 19vw, 92px);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.98);
+  padding: 0.15rem;
+  box-sizing: border-box;
+  aspect-ratio: 5 / 7;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 26px rgba(2, 6, 23, 0.42);
+  transition: box-shadow 0.2s ease, background 0.2s ease;
+  overflow: hidden;
+  transform-origin: bottom center;
+  will-change: transform;
+}
+
+.card:hover {
+  box-shadow: 0 20px 38px rgba(2, 6, 23, 0.55);
+}
+
+.cardFace {
+  width: 100%;
+  height: 100%;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.controls {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  border-radius: 16px;
+  padding: 1.2rem;
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.controlRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.label {
+  font-weight: 500;
+}
+
+.bidOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  padding: 0.65rem 1.6rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.primaryButton {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: #0f172a;
+  box-shadow: 0 12px 24px rgba(14, 165, 233, 0.35);
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 32px rgba(14, 165, 233, 0.45);
+}
+
+.secondaryButton {
+  background: transparent;
+  color: rgba(148, 163, 184, 0.9);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+  border-color: rgba(148, 163, 184, 0.55);
+}
+
+.bidOption {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  border: 1px solid rgba(148, 163, 184, 0.35);
+  background: rgba(15, 23, 42, 0.8);
+  color: rgba(226, 232, 240, 0.85);
+  font-size: 1.1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.bidOption:hover {
+  transform: translateY(-3px);
+  border-color: rgba(148, 163, 184, 0.6);
+  box-shadow: 0 12px 22px rgba(2, 6, 23, 0.4);
+}
+
+.bidOptionActive {
+  border-color: rgba(56, 189, 248, 0.8);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.3), rgba(14, 165, 233, 0.4));
+  color: #e0f2fe;
+  box-shadow: 0 14px 26px rgba(14, 165, 233, 0.35);
+}
+
+.bidOption:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.9);
+  outline-offset: 2px;
+}
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(2, 6, 23, 0.78);
+  backdrop-filter: blur(6px);
+  z-index: 50;
+}
+
+.modalContent {
+  width: min(92%, 360px);
+  border-radius: 18px;
+  padding: 1.4rem 1.25rem;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  background: rgba(15, 23, 42, 0.92);
+  box-shadow: 0 24px 48px rgba(2, 6, 23, 0.55);
+  display: grid;
+  gap: 1rem;
+  text-align: center;
+}
+
+.modalIcon {
+  width: 82px;
+  height: 82px;
+  margin: 0 auto;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 16px 32px rgba(15, 23, 42, 0.45);
+}
+
+.iconSvg {
+  width: 68px;
+  height: 68px;
+}
+
+.iconSuccess {
+  background: radial-gradient(circle at 50% 35%, rgba(34, 197, 94, 0.6), rgba(15, 118, 110, 0.65));
+}
+
+.iconFail {
+  background: radial-gradient(circle at 50% 35%, rgba(248, 113, 113, 0.6), rgba(190, 18, 60, 0.65));
+}
+
+.modalContent h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modalContent p {
+  font-size: 0.95rem;
+  color: rgba(226, 232, 240, 0.9);
+  line-height: 1.6;
+}
+
+.modalButton {
+  justify-self: center;
+  border-radius: 999px;
+  border: 1px solid rgba(14, 165, 233, 0.4);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.35), rgba(14, 165, 233, 0.5));
+  color: #e0f2fe;
+  font-weight: 600;
+  padding: 0.5rem 1.4rem;
+  cursor: pointer;
+  box-shadow: 0 16px 32px rgba(14, 165, 233, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.modalButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 36px rgba(14, 165, 233, 0.45);
+}
+
+.modalButton:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.9);
+  outline-offset: 3px;
+}
+
+.success {
+  border-color: rgba(34, 197, 94, 0.45);
+  box-shadow: 0 12px 28px rgba(34, 197, 94, 0.25);
+}
+
+.fail {
+  border-color: rgba(248, 113, 113, 0.45);
+  box-shadow: 0 12px 28px rgba(248, 113, 113, 0.25);
+}
+
+.suitS {
+  border-color: rgba(17, 24, 39, 0.9);
+}
+
+.suitH {
+  border-color: rgba(220, 38, 38, 0.85);
+}
+
+.suitD {
+  border-color: rgba(220, 38, 38, 0.85);
+}
+
+.suitC {
+  border-color: rgba(17, 24, 39, 0.9);
+}
+
+@media (max-width: 720px) {
+  .headerWrapper {
+    justify-content: center;
+  }
+
+  .sectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .gameArea {
+    width: 100%;
+    padding: 1rem 0.85rem 2rem;
+    gap: 1.2rem;
+  }
+
+  .intro,
+  .controls {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .intro p {
+    max-width: 100%;
+  }
+
+  .handSection {
+    padding: 1rem 1rem 1rem;
+    border-radius: 12px;
+  }
+
+  .intro h1 {
+    font-size: clamp(1.7rem, 7vw, 2.2rem);
+  }
+
+  .cardGrid {
+    max-width: 100%;
+  }
+
+  .card {
+    width: clamp(64px, 23vw, 88px);
+    border-radius: 12px;
+  }
+
+  .bidOptions {
+    gap: 0.55rem;
+  }
+
+  .bidOption {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
+
+  .modalOverlay {
+    padding: 1.2rem;
+  }
+
+  .modalContent {
+    padding: 1.4rem 1.2rem;
+    gap: 0.85rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .gameArea {
+    width: 100%;
+    padding: 0.85rem 0.55rem 1.9rem;
+  }
+
+  .intro,
+  .controls {
+    padding: 0.85rem;
+  }
+
+  .intro p {
+    max-width: 100%;
+  }
+
+  .handSection {
+    padding: 0.85rem 0.85rem 0.95rem;
+  }
+
+  .cardGrid {
+    max-width: 100%;
+  }
+
+  .card {
+    width: clamp(58px, 27vw, 80px);
+    border-radius: 11px;
+  }
+
+  .bidOption {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .modalOverlay {
+    padding: 0.9rem;
+  }
+
+  .modalContent {
+    padding: 1.2rem 1rem;
+    gap: 0.7rem;
+  }
+
+  .modalContent p {
+    font-size: 0.95rem;
+  }
+
+  .modalIcon {
+    width: 78px;
+    height: 78px;
+  }
+
+  .iconSvg {
+    width: 66px;
+    height: 66px;
+  }
+}
