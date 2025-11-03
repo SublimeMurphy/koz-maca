@@ -7,12 +7,16 @@ export function GET(request: NextRequest) {
   const origin = request.nextUrl.origin;
   const manifest = withValidManifest({
     accountAssociation: {
-      
+      header:
+        "eyJmaWQiOjE0Mjg1MTQsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhjM2EwNzg1MDU1Q2VEMzRFYjI0MmJhYjQ3RGVGOTYyQmFjYzlENjkyIn0",
+      payload: "eyJkb21haW4iOiJtaW5pLW1hdGgtcXVpei52ZXJjZWwuYXBwIn0",
+      signature:
+        "GH6wu71zW9CR4tUqvZm/VnI/uC7Eex8xAR4pY1DEFhkSoTK4fBXvrNVYc9yUjBcZwrVz26tz6wpzjDetGW92PBw=",
     },
     miniapp: {
       version: "1",
       name: "Koz Maca",
-      description: "Koz Maca",
+      description: "Koz Maca App",
       iconUrl: `${origin}/icon.png`,
       homeUrl: origin,
       splashImageUrl: `${origin}/sphere.svg`,
@@ -21,7 +25,7 @@ export function GET(request: NextRequest) {
       supportUrl: origin,
       categories: ["education", "games"],
       primaryCategory: "games",
-      tags: ["batak", "game", "education"],
+      tags: ["games", "quiz", "education"],
     },
     baseBuilder: {
       ownerAddress: "0xACAFA638CB6736f54e9616F72DF895B0199b8Ba8",
