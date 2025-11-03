@@ -9,9 +9,9 @@ export function GET(request: NextRequest) {
     accountAssociation: {
       header:
         "eyJmaWQiOjE0Mjg1MTQsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHhjM2EwNzg1MDU1Q2VEMzRFYjI0MmJhYjQ3RGVGOTYyQmFjYzlENjkyIn0",
-      payload: "eyJkb21haW4iOiJtaW5pLW1hdGgtcXVpei52ZXJjZWwuYXBwIn0",
+      payload: "eyJkb21haW4iOiJrb3otbWFjYS52ZXJjZWwuYXBwIn0",
       signature:
-        "GH6wu71zW9CR4tUqvZm/VnI/uC7Eex8xAR4pY1DEFhkSoTK4fBXvrNVYc9yUjBcZwrVz26tz6wpzjDetGW92PBw=",
+        "Nrhvm1yetqz5GC32uU9nRnbxivWpFIY20NJbp4sSS9IzNEqkpwI37dOcjc+5lIipjNYR1nK69Xja/yvPpOS+kxw=",
     },
     miniapp: {
         version: "1",
