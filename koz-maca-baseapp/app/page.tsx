@@ -8,6 +8,7 @@ import {
   useRef,
   useState,
 } from "react";
+import { sdk } from "@farcaster/miniapp-sdk";
 import { Wallet } from "@coinbase/onchainkit/wallet";
 import styles from "./page.module.css";
 
@@ -412,6 +413,41 @@ export default function Home() {
     setRoundResult(null);
     setBid(5);
   };
+
+  const readyCalledRef = useRef(false);
+
+  useEffect(() => {
+    if (readyCalledRef.current) {
+      return;
+    }
+
+    let cancelled = false;
+
+    const signalReady = async () => {
+      if (typeof window === "undefined") {
+        return;
+      }
+
+      if (!sdk?.actions?.ready) {
+        return;
+      }
+
+      try {
+        await sdk.actions.ready();
+        if (!cancelled) {
+          readyCalledRef.current = true;
+        }
+      } catch (error) {
+        console.warn("[miniapp] sdk.ready() failed", error);
+      }
+    };
+
+    signalReady();
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <div className={styles.container}>
